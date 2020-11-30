@@ -47,5 +47,8 @@ suite "Nuid Module Tests":
       s1.incl(n1.next())
       s2.incl(n2.next())
 
-    #var c = intersection(s1, s2)
     check len(intersection(s1, s2)) == 0
+
+  test "next() creates id of correct length":
+    var n1 = newNUID()
+    check n1.next().len == nuid.TOTAL_LEN
